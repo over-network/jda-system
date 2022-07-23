@@ -26,7 +26,7 @@ public class Main {
         if (guild != null) {
             guild.updateCommands().addCommands(
             Commands.slash("create-verify-embed", "Creates the verify embed")
-        );
+        ).queue();
         }
     }
 
