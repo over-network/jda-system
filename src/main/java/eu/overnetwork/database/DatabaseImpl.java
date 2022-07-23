@@ -19,7 +19,7 @@ public class DatabaseImpl implements Database {
     private DatabaseImpl() {
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:sqlite:overnetwork.sqlite" /*+ dotenv.get("DATABASE_URL")/*, dotenv.get("DATABASE_USER"), dotenv.get("DATABASE_PASSWORD")*/);
+                    "jdbc:sqlite:overnetwork.db" /*+ dotenv.get("DATABASE_URL")/*, dotenv.get("DATABASE_USER"), dotenv.get("DATABASE_PASSWORD")*/);
             connection.createStatement().execute("CREATE TABLE IF NOT EXISTS `members` (" +
                     "`guild_id` VARCHAR NOT NULL," +
                     "`member_id` VARCHAR NOT NULL," +

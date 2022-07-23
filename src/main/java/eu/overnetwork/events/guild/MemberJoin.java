@@ -1,6 +1,5 @@
 package eu.overnetwork.events.guild;
 
-import eu.overnetwork.core.Main;
 import eu.overnetwork.database.Database;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -15,9 +14,7 @@ public class MemberJoin extends ListenerAdapter {
 
     private Database database;
     
-    public MemberJoin() {
-        Main.listeneradapter.add(this);
-    }
+
     
 
     public MemberJoin(Database database){
