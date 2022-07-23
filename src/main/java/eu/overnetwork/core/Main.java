@@ -1,6 +1,8 @@
 package eu.overnetwork.core;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
@@ -13,10 +15,10 @@ import javax.security.auth.login.LoginException;
 public class Main {
 
     public static final Dotenv dotenv = Dotenv.load();
-    private final ShardManager jda;
+    private final JDA jda;
 
     public Main() throws LoginException {
-        DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(dotenv.get("TOKEN"));
+        JDABuilder builder = JDABuilder.createDefault(dotenv.get("TOKEN"));
         builder.setStatus(OnlineStatus.DO_NOT_DISTURB);
         builder.setActivity(Activity.watching("installation process"));
         jda = builder.build();
@@ -30,9 +32,6 @@ public class Main {
         }
     }
 
-    public ShardManager getShardManager() {
-        return jda;
-    }
 
     public static void main(String[] args) throws LoginException {
         try {
