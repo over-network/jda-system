@@ -26,7 +26,7 @@ public class Main {
         if (guild != null) {
             guild.updateCommands().addCommands(
             Commands.slash("create-verify-embed", "Creates the verify embed")
-        );
+        ).queue();
         }
     }
 
@@ -39,6 +39,7 @@ public class Main {
             Main api = new Main();
         } catch (LoginException e) {
             e.printStackTrace();
+            throw new LoginException();
         }
     }
 }
